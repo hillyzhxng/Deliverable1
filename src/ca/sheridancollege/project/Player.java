@@ -5,15 +5,32 @@
  */
 package ca.sheridancollege.project;
 
+import java.util.Scanner;
 /**
  * A class that models each Player in the game. Players have an identifier, which should be unique.
  *
  * @author dancye
  * @author Paul Bonenfant Jan 2020
  */
-public abstract class Player {
-
-    private String name; //the unique name for this player
+public abstract class Player 
+{
+    private String name;
+    
+    public static void main (String[] args)
+    {
+        System.out.println("Enter name ");
+        Scanner input = new Scanner(System.in);
+         
+        String name = input.nextLine();  
+    }
+  /*  
+    public static boolean checkName (String name)
+    {
+        if(name.Name())
+    }*/
+            
+            
+    //the unique name for this player
 
     /**
      * A constructor that allows you to set the player's unique ID
