@@ -1,25 +1,53 @@
-/**
- * SYST 17796 Project Base code.
- * Students can modify and extend to implement their game.
- * Add your name as an author and the date!
- */
 package ca.sheridancollege.project;
 
-/**
- * A class to be used as the base Card class for the project. Must be general enough to be instantiated for any Card
- * game. Students wishing to add to the code should remember to add themselves as a modifier.
- *
- * @author dancye
- */
-public abstract class Card {
-    //default modifier for child classes
+public class Card {
+    private final int rank;
+    private final Suit suit;
 
-    /**
-     * Students should implement this method for their specific children classes
-     *
-     * @return a String representation of a card. Could be an UNO card, a regular playing card etc.
-     */
+    public Card(int rank, Suit suit) {
+        this.rank = rank;
+        this.suit = suit;
+    }
+
+    public Card(int rank, String suit) {
+        this(rank, Suit.valueOf(suit.toUpperCase()));
+    }
+    
+    public int getRank() {
+        return rank;
+    }
+
+    public Suit getSuit() {
+        return suit;
+    }
+
     @Override
-    public abstract String toString();
+    public String toString() {
+        String rankStr;
+        switch (rank) {
+            case 11:
+                rankStr = "Jack";
+                break;
+            case 12:
+                rankStr = "Queen";
+                break;
+            case 13:
+                rankStr = "King";
+                break;
+            case 14:
+                rankStr = "Ace";
+                break;
+            default:
+                rankStr = Integer.toString(rank);
+                break;
+        }
+        return rankStr + " of " + suit.toString();
+    }
+}
 
+enum Suit {
+    HEARTS,
+    DIAMONDS,
+    CLUBS,
+    SPADES
 }

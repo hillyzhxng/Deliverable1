@@ -1,68 +1,98 @@
-/**
- * SYST 17796 Project Base code.
- * Students can modify and extend to implement their game.
- * Add your name as an author and the date!
- */
 package ca.sheridancollege.project;
 
-import java.util.Scanner;
-/**
- * A class that models each Player in the game. Players have an identifier, which should be unique.
- *
- * @author dancye
- * @author Paul Bonenfant Jan 2020
- */
-public abstract class Player 
-{
-    private String name;
-    
-    public static void main (String[] args)
-    {
-        System.out.println("Enter name ");
-        Scanner input = new Scanner(System.in);
-         
-        String name = input.nextLine();  
-    }
-  /*  
-    public static boolean checkName (String name)
-    {
-        if(name.Name())
-    }*/
-            
-            
-    //the unique name for this player
+import java.util.ArrayList;
 
-    /**
-     * A constructor that allows you to set the player's unique ID
-     *
-     * @param name the unique ID to assign to this player.
-     */
+public class Player {
+
+    private String name;
+    private int score;
+    private ArrayList<Card> cards;
+
     public Player(String name) {
         this.name = name;
+        score = 0;
+        cards = new ArrayList<>();
     }
 
-    /**
-     * @return the player name
-     */
     public String getName() {
         return name;
     }
 
-    /**
-     * Ensure that the playerID is unique
-     *
-     * @param name the player name to set
-     */
     public void setName(String name) {
         this.name = name;
     }
 
-    /**
-     * The method to be overridden when you subclass the Player class with your specific type of Player and filled in
-     * with logic to play your game.
-     */
-    public abstract void play();
+    public int getScore() {
+        return score;
+    }
+
+        /**
+ * Increases the player's score by 1.
+ */
+    public void incrementScore() {
+    score++;
+    }
+
+/**
+ * Increases the player's score by a given amount.
+ * @param amount the amount to increase the score by.
+ */
+    public void incrementScore(int amount) {
+    score += amount;
+    }
+
+/**
+ * Resets the player's score to 0.
+ */
+    public void resetScore() {
+    score = 0;
+    }
+
+    public void addCard(Card card) {
     
+        cards.add(card);
     
+    }
+    
+/**
+ * Returns the cards in the player's hand.
+ *
+ * @return the cards in the player's hand
+ */
+    public ArrayList<Card> getCards() {
+    
+        return cards;
+    }
+
+/**
+ * Removes all of the player's cards.
+ */
+    public void removeAllCards() {
+    cards.clear();
+    }
+
+/**
+ * Returns the number of cards that the player has.
+ * @return the number of cards.
+ */
+    public int getNumberOfCards() {
+    return cards.size();
+    }
+
+/**
+ * Removes the top card from the player's deck of cards.
+ * @return the top card.
+ */
+    public Card removeTopCard() {
+    return cards.remove(0);
+    }
+
+    Object getCard() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    void setScore(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
 }

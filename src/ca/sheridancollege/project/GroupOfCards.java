@@ -1,55 +1,64 @@
-/**
- * SYST 17796 Project Base code.
- * Students can modify and extend to implement their game.
- * Add your name as an author and the date!
- */
 package ca.sheridancollege.project;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
-/**
- * A concrete class that represents any grouping of cards for a Game. HINT, you might want to subclass this more than
- * once. The group of cards has a maximum size attribute which is flexible for reuse.
- *
- * @author dancye
- * @author Paul Bonenfant Jan 2020
- */
 public class GroupOfCards {
-
-    //The group of cards, stored in an ArrayList
-    private ArrayList<Card> cards;
-    private int size;//the size of the grouping
-
-    public GroupOfCards(int size) {
-        this.size = size;
+    
+    private final ArrayList<Card> deck;
+    private final int DECK_SIZE = 52;
+    
+    public GroupOfCards() {
+        deck = new ArrayList<>();
+        populate();
     }
-
-    /**
-     * A method that will get the group of cards as an ArrayList
-     *
-     * @return the group of cards.
-     */
-    public ArrayList<Card> getCards() {
-        return cards;
+    
+    public ArrayList<Card> getDeck() {
+        return deck;
     }
-
+    
+    public void populate() {
+        deck.clear();
+        for (int i = 2; i <= 14; i++) {
+            for (String suit : new String[]{"Hearts", "Diamonds", "Clubs", "Spades"}) {
+                deck.add(new Card(i, suit));
+            }
+        }
+    }
+    
     public void shuffle() {
-        Collections.shuffle(cards);
+        Collections.shuffle(deck);
+    }
+    
+    public Card dealCard() {
+        return deck.remove(0);
+    }
+    
+    public int getDeckSize() {
+        return DECK_SIZE;
+    }
+    
+    public ArrayList<Card> getCards() {
+    return new ArrayList<>(deck);
+  }
+
+    void addCard(Card card) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    /**
-     * @return the size of the group of cards
-     */
-    public int getSize() {
-        return size;
+    int size() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    /**
-     * @param size the max size for the group of cards
-     */
-    public void setSize(int size) {
-        this.size = size;
+    Card removeCard() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-}//end class
+    Card getCard(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    GroupOfCards copy() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+}
