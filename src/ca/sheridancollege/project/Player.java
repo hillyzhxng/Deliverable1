@@ -1,3 +1,9 @@
+/*
+* Rachel Prasad
+* Hillary Zhang
+* Rishabh Kumar
+*/
+
 package ca.sheridancollege.project;
 
 import java.util.ArrayList;

@@ -1,3 +1,8 @@
+/*
+* Rachel Prasad
+* Hillary Zhang
+* Rishabh Kumar
+*/
 package ca.sheridancollege.project;
 
 public class Card {
